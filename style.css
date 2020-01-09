@@ -48,10 +48,12 @@ body{
 
 .textBoxBorder{
     /* Rectangle 49 */
-
     position: relative;
+    display: flex;
     width: 60%;
-    height: 320px;
+    height: 400%;
+    /*height: 320px;*/
+
     left: calc(50% - 60%/2);
     top: calc(75% + 410px);
     /* BackgroundBar */
@@ -62,7 +64,6 @@ body{
 .textBox{
 
     position: absolute;
-    /*margin: 5px 5px 5px 5px;*/
     width: 95%;
     left: calc(50% - 95%/2 - 1%);
     /*top: 480px;*/
@@ -75,8 +76,7 @@ body{
     font-size: 24px;
     line-height: 28px;
     text-align: center;
-    display: flex;
-    flex-wrap: wrap;
+
 
     /* textColor */
     color: #FFFFFF;
