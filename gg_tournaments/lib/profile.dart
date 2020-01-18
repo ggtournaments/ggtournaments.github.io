@@ -5,12 +5,12 @@ class ProfilePage extends StatelessWidget {
   Widget textWidget(String text) {
     return Text(text);
   }
-  
+
   Widget rowWidget(String text1, String text2) {
     return Row(
       children: <Widget>[
         Text(text1),
-        Text(text2)
+        Text(text2),
       ],
     );
   }
@@ -23,7 +23,9 @@ class ProfilePage extends StatelessWidget {
       body: Center(
         // Work from here
         child: Column(
-          children: <Widget>[],
+          children: <Widget>[
+            rowWidget("1", "4")
+          ],
         )
       )
     );
