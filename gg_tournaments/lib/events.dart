@@ -21,15 +21,19 @@ class _EventsPageState extends State<EventsPage> {
     List<Widget> cardList =  new List<Widget>();
 
     for (var item in items) {
-      Widget card = new Card(
-        child: InkWell(
-          onTap: () {},
-          child: Container(
-            width: 200,
+      Widget card = new Container(
+        padding: EdgeInsets.only(
+          left: 10.0,
+          right: 10.0
+        ),
+        width: 210,
+        child: Card(
+          child: InkWell(
+            onTap: () {},
             child: Text(item),
           ),
+          elevation: 5.0,
         ),
-        elevation: 5.0,
       );
 
       cardList.add(card);
@@ -42,11 +46,22 @@ class _EventsPageState extends State<EventsPage> {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          Divider(height: 10),
+          Divider(height: 20),
 
           Text("Super Smash Bros: Ultimate"),
+          Divider(height: 5),
           Container(
-            height: 150,
+            width: MediaQuery.of(context).size.width - 10,
+            height: 5,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(Radius.circular(8.0))
+            )
+          ),
+          Divider(height: 5),
+          Container(
+            height: 120,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: cardGenerator(["hi", "this", "is", "cool"])
@@ -56,160 +71,88 @@ class _EventsPageState extends State<EventsPage> {
           Divider(height: 10),
 
           Text("Fortnite"),
+          Divider(height: 5),
           Container(
-            height: 150,
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          Container(
+            height: 120,
             child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                )
-              ],
+                scrollDirection: Axis.horizontal,
+                children: cardGenerator(["hi", "this", "is", "cool"])
             ),
           ),
 
           Divider(height: 10),
 
           Text("Dota 2"),
+          Divider(height: 5),
           Container(
-            height: 150,
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          Container(
+            height: 120,
             child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                )
-              ],
+                scrollDirection: Axis.horizontal,
+                children: cardGenerator(["hi", "this", "is", "cool"])
             ),
           ),
 
           Divider(height: 10),
 
           Text("Counter Strike: Global Offensive"),
+          Divider(height: 5),
           Container(
-            height: 150,
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          Container(
+            height: 120,
             child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                )
-              ],
+                scrollDirection: Axis.horizontal,
+                children: cardGenerator(["hi", "this", "is", "cool"])
             ),
           ),
 
           Divider(height: 10),
 
           Text("Hearthstone"),
+          Divider(height: 5),
           Container(
-            height: 150,
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          Container(
+            height: 120,
             child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                ),
-                Card(
-                  child: InkWell(
-                    child: Text("hi this is a long message"),
-                    onTap: () {},
-                  ),
-                  elevation: 5.0,
-                )
-              ],
+                scrollDirection: Axis.horizontal,
+                children: cardGenerator(["hi", "this", "is", "cool"])
             ),
           ),
         ],
