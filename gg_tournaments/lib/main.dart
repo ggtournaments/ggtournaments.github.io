@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:gg_tournaments/signup_page.dart';
 import 'login.dart';
 import 'menu.dart';
+import 'signup_page.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
+    SignupPage.tag: (context) => SignupPage(),
     MenuPage.tag: (context) => MenuPage(),
   };
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

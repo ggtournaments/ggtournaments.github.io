@@ -6,6 +6,7 @@ import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'auth.dart';
+import 'main.dart';
 import 'menu.dart';
 import 'signup_page.dart';
 
@@ -30,7 +31,10 @@ class _LoginPageState extends State<LoginPage> {
       //This has been changed in order to allow for the argument uid to be passed into the menu page.
       onPressed: () async {
         FirebaseUser user = await authService.googleSignIn();
-        Navigator.of(context).pushNamed(MenuPage.tag, arguments: user.uid);
+          Navigator.push(context, new MaterialPageRoute(
+              builder: (context) =>
+              new MenuPage())
+          );
         ;
       },
     );
@@ -40,7 +44,10 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(24),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed(SignupPage.tag);
+        Navigator.push(context, new MaterialPageRoute(
+            builder: (context) =>
+            new SignupPage())
+        );
       },
       padding: EdgeInsets.all(12),
       color: Colors.blue,
@@ -212,46 +219,7 @@ class _EmailPasswordFormState extends State<_EmailPasswordForm> {
 //Then, MenuPage is shown
 //If registration is not successful, then an error is caught and passed to createAlert
   void _signInWithEmailAndPassword() async {
-    String reason;
-    //Try the following. Throws PlatformException error if invalid email, wrong password, or nonexisting account.
-    try {
-      final FirebaseUser user = (await _auth.signInWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      ))
-          .user;
-      if (user != null) {
-        setState(() {
-          _success = true;
-          _userEmail = user.email;
-        });
-        logInUpdateUserData(user);
-        Navigator.of(context).pushNamed(MenuPage.tag,
-            // Pass the users uid as an argument to the main menu page
-            arguments: user.uid);
-      } else {
-        _success = false;
-      }
-    } on PlatformException catch (e) {
-      switch (e.code) {
-        case 'ERROR_INVALID_EMAIL':
-          reason = 'Invalid Email';
-          createAlert(context, reason);
-          break;
-        case 'ERROR_USER_NOT_FOUND':
-          reason = 'User Not Found';
-          createAlert(context, reason);
-          break;
-        case 'ERROR_WRONG_PASSWORD':
-          reason = 'Wrong Password';
-          createAlert(context, reason);
-          break;
-        default:
-          reason = 'Error';
-          createAlert(context, reason);
-          break;
-      }
-    }
+    Navigator.of(context).pushNamed(MenuPage.tag);
   }
 
   //This is necessary as before auth's update function was used. This was fine for Google accounts,
