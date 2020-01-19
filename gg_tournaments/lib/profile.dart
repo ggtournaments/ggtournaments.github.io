@@ -24,6 +24,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Color(0xFF3d3d3d),
       appBar: AppBar(),
       body: Center(
         // Work from here
