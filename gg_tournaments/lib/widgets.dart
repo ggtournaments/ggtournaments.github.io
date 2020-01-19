@@ -1,13 +1,28 @@
-
-
 import 'package:flutter/material.dart';
 
+Widget rowText(String text1){
+  return Padding(
+    padding: const EdgeInsets.all(5),
+    child: Text(text1),
+  );
+}
 
-Widget rowWidget(String text1, String text2) {
+Widget rowWidget(){
   return Row(
     children: <Widget>[
-      Text(text1),
-      Text(text2),
+      //Text(text1),
+      //Text(text2),
+      //Padding(
+        //padding: const EdgeInsets.all(5),
+        //child: Container(
+      Container(
+        width: 390,
+        height: 5,
+        margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+        //margin: EdgeInsets.all(20),
+        color: Color(0xFFA88A3D),
+      ),
+      //),
     ],
   );
 }
@@ -45,10 +60,10 @@ Widget scrollsArray(List<Widget> widgetList){
   );
 }
 
-Widget coverContainer(String titleText){
+Widget profileTop(String imageURI, String username, String game, int wins){
   return Container(
     color: Color(0xFFA88A3D),
-    width: 500,
+    width: 600,
     height: 200,
     //width: 200,
     //height: 50,
@@ -60,18 +75,18 @@ Widget coverContainer(String titleText){
         Padding(
           padding: const EdgeInsets.all(10),
           child: Image.asset(
-              'profilePics/NierAutomata.jpg'
+              imageURI
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(5),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("User: ThaPlayaSlaya"),
-              Text("Favorite Game: League of Legends"),
-              Text("Tournament Wins: 12"),
+              Text(username),
+              Text("game: " + game),
+              Text("Wins: " + wins.toString()),
             ],
           )
         ),

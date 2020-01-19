@@ -33,14 +33,19 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         // Work from here
-        child: Column(
-          children: <Widget>[
-            w.coverContainer("Add Cover Photo:"),
-            w.rowWidget("Profile Page", "user"),
-            w.rowWidget("Tournament", "start time"),
-            w.scrollsArray(widgetList),
-            w.scrollsArray(widgetList),
-          ],
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: <Widget>[
+              w.profileTop("profilePics/NierAutomata.jpg", "Tha Playa Slaya", "League of Legends", 12),
+              w.rowText("Saved Games"),
+              w.rowWidget(),
+              w.scrollsArray(widgetList),
+              w.rowText("Attended"),
+              w.rowWidget(),
+              w.scrollsArray(widgetList),
+            ],
+          ),
         )
       )
     );
