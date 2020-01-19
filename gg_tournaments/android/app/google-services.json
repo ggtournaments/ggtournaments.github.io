@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "302027302622",
+    "firebase_url": "https://ggtournaments-7c772.firebaseio.com",
+    "project_id": "ggtournaments-7c772",
+    "storage_bucket": "ggtournaments-7c772.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302027302622:android:25dca039cc730f283c844f",
+        "android_client_info": {
+          "package_name": "ggtournaments.gg_tournaments"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302027302622-83gs9am6sgqc1dqbu8umhdq0sbiq4qar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ggtournaments.gg_tournaments",
+            "certificate_hash": "22d426ccb1e7bd6ce0047050d9585c9cb30a8b8c"
+          }
+        },
+        {
+          "client_id": "302027302622-6skeki80d53mlrt0bgv5t1aa4c008psd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtRPzQJe8KktRwRzKuyXAyfPYC4NmGLwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302027302622-6skeki80d53mlrt0bgv5t1aa4c008psd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
