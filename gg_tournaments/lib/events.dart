@@ -1,4 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final Firestore _firestore = Firestore.instance;
+
+class Event {
+  String name;
+  String description;
+  String location;
+  DateTime dateTime;
+
+  Event(this.name, this.description, this.location, this.dateTime);
+}
 
 class EventsPage extends StatefulWidget {
   static String tag = 'menu-page';
@@ -17,29 +29,115 @@ class _EventsPageState extends State<EventsPage> {
     super.initState();
   }
 
-  List<Widget> cardGenerator(items) {
-    List<Widget> cardList =  new List<Widget>();
+  Widget eventCardGenerator(String game) {
+    return StreamBuilder(
+      stream: _firestore.collection("events").document("games").collection(game).snapshots(),
+      builder: (context, snapshot) {
+        List<Widget> cardList =  new List<Widget>();
 
-    for (var item in items) {
-      Widget card = new Container(
-        padding: EdgeInsets.only(
-          left: 10.0,
-          right: 10.0
-        ),
-        width: 210,
-        child: Card(
-          child: InkWell(
-            onTap: () {},
-            child: Text(item),
+        if (!snapshot.hasData)
+          return Container();
+
+        List<DocumentSnapshot> docs = snapshot.data.documents;
+
+        for (int i = 0; i < 6; i++) {
+          if (i == docs.length)
+            break;
+
+          print(docs[i].data.toString());
+
+          Widget card = new Container(
+            padding: EdgeInsets.only(
+              left: 10.0,
+              right: 10.0
+            ),
+            width: 210,
+            child: Card(
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("pics/Snowboard-Wallpaper-Fa.jpg")
+                    )
+                  ),
+                  child: Wrap(
+                    alignment: WrapAlignment.start,
+                    runAlignment: WrapAlignment.end,
+                    children: <Widget>[
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            docs[i].data['platform'] ?? "N/A",
+                            style: TextStyle(
+                              color: Colors.white,
+                              shadows: [
+                                Shadow( // bottomLeft
+                                    offset: Offset(-1.5, -1.5),
+                                    color: Colors.black
+                                ),
+                                Shadow( // bottomRight
+                                    offset: Offset(1.5, -1.5),
+                                    color: Colors.black
+                                ),
+                                Shadow( // topRight
+                                    offset: Offset(1.5, 1.5),
+                                    color: Colors.black
+                                ),
+                                Shadow( // topLeft
+                                    offset: Offset(-1.5, 1.5),
+                                    color: Colors.black
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            docs[i].data['type'] ?? "N/A",
+                            style: TextStyle(
+                              color: Colors.white,
+                              shadows: [
+                                Shadow( // bottomLeft
+                                    offset: Offset(-1.5, -1.5),
+                                    color: Colors.black
+                                ),
+                                Shadow( // bottomRight
+                                    offset: Offset(1.5, -1.5),
+                                    color: Colors.black
+                                ),
+                                Shadow( // topRight
+                                    offset: Offset(1.5, 1.5),
+                                    color: Colors.black
+                                ),
+                                Shadow( // topLeft
+                                    offset: Offset(-1.5, 1.5),
+                                    color: Colors.black
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ),
+              elevation: 5.0,
+            ),
+          );
+
+          cardList.add(card);
+        }
+
+        return Container(
+          height: 120,
+          child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: cardList
           ),
-          elevation: 5.0,
-        ),
-      );
-
-      cardList.add(card);
-    }
-
-    return cardList;
+        );
+      },
+    );
   }
 
   Widget gameView() {
@@ -60,13 +158,7 @@ class _EventsPageState extends State<EventsPage> {
             )
           ),
           Divider(height: 5),
-          Container(
-            height: 120,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: cardGenerator(["hi", "this", "is", "cool"])
-            ),
-          ),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
 
           Divider(height: 10),
 
@@ -82,13 +174,7 @@ class _EventsPageState extends State<EventsPage> {
               )
           ),
           Divider(height: 5),
-          Container(
-            height: 120,
-            child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: cardGenerator(["hi", "this", "is", "cool"])
-            ),
-          ),
+          eventCardGenerator("Fortnite"),
 
           Divider(height: 10),
 
@@ -104,13 +190,7 @@ class _EventsPageState extends State<EventsPage> {
               )
           ),
           Divider(height: 5),
-          Container(
-            height: 120,
-            child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: cardGenerator(["hi", "this", "is", "cool"])
-            ),
-          ),
+          eventCardGenerator("Dota 2"),
 
           Divider(height: 10),
 
@@ -126,13 +206,7 @@ class _EventsPageState extends State<EventsPage> {
               )
           ),
           Divider(height: 5),
-          Container(
-            height: 120,
-            child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: cardGenerator(["hi", "this", "is", "cool"])
-            ),
-          ),
+          eventCardGenerator("Counter Strike: Global Offensive"),
 
           Divider(height: 10),
 
@@ -148,13 +222,151 @@ class _EventsPageState extends State<EventsPage> {
               )
           ),
           Divider(height: 5),
+          eventCardGenerator("Hearthstone"),
+        ],
+      ),
+    );
+  }
+
+  Widget genreView() {
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Divider(height: 20),
+
+          Text("Fighting"),
+          Divider(height: 5),
           Container(
-            height: 120,
-            child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: cardGenerator(["hi", "this", "is", "cool"])
-            ),
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
           ),
+          Divider(height: 5),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
+
+          Divider(height: 10),
+
+          Text("FPS"),
+          Divider(height: 5),
+          Container(
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
+
+          Divider(height: 10),
+
+          Text("Strategy"),
+          Divider(height: 5),
+          Container(
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
+
+          Divider(height: 10),
+
+          Text("MOBA"),
+          Divider(height: 5),
+          Container(
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
+
+          Divider(height: 10),
+
+          Text("Battle Royale"),
+          Divider(height: 5),
+          Container(
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
+        ],
+      ),
+    );
+  }
+
+  Widget platformView() {
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Divider(height: 20),
+
+          Text("PC"),
+          Divider(height: 5),
+          Container(
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
+
+          Divider(height: 10),
+
+          Text("Xbox One"),
+          Divider(height: 5),
+          Container(
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
+
+          Divider(height: 10),
+
+          Text("Playstation 4"),
+          Divider(height: 5),
+          Container(
+              width: MediaQuery.of(context).size.width - 10,
+              height: 5,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+              )
+          ),
+          Divider(height: 5),
+          eventCardGenerator("Super Smash Bros: Ultimate"),
         ],
       ),
     );
@@ -164,12 +376,12 @@ class _EventsPageState extends State<EventsPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return TabBarView(
-      children: [
-        gameView(),
-        new Text("This is chat Tab View"),
-        new Text("This is notification Tab View"),
-      ],
-      controller: widget.tabController
+        children: [
+          gameView(),
+          genreView(),
+          platformView(),
+        ],
+        controller: widget.tabController
     );
   }
 }
