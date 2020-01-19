@@ -59,11 +59,21 @@ Widget coverContainer(String titleText){
         //put 'cover photo' and plus sign logo here
         Padding(
           padding: const EdgeInsets.all(10),
-          child: Text(titleText),
+          child: Image.asset(
+              'profilePics/NierAutomata.jpg'
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(10),
-          child: Text(titleText),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text("User: ThaPlayaSlaya"),
+              Text("Favorite Game: League of Legends"),
+              Text("Tournament Wins: 12"),
+            ],
+          )
         ),
 
       ],
