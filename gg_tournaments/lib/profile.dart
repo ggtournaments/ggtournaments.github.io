@@ -38,10 +38,13 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               w.profileTop("profilePics/NierAutomata.jpg", "Tha Playa Slaya", "League of Legends", 12),
-              w.rowText("Saved Games"),
+              w.rowText("Attending"),
               w.rowWidget(),
               w.scrollsArray(widgetList),
-              w.rowText("Attended"),
+              w.rowText("Created"),
+              w.rowWidget(),
+              w.scrollsArray(widgetList),
+              w.rowText("Saved"),
               w.rowWidget(),
               w.scrollsArray(widgetList),
             ],

@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 Widget rowText(String text1){
   return Padding(
     padding: const EdgeInsets.all(5),
-    child: Text(text1),
+    child: Text(
+      text1,
+      style: TextStyle(color: Colors.white),
+
+    ),
   );
 }
 
@@ -84,9 +88,18 @@ Widget profileTop(String imageURI, String username, String game, int wins){
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(username),
-              Text("game: " + game),
-              Text("Wins: " + wins.toString()),
+              Text(
+                username,
+                style: TextStyle(color: Colors.white),
+              ),
+              Text(
+                "Game: " + game,
+                style: TextStyle(color: Colors.white),
+              ),
+              Text(
+                "Wins: " + wins.toString(),
+                style: TextStyle(color: Colors.white),
+              ),
             ],
           )
         ),
