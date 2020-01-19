@@ -1,0 +1,2 @@
+# Referenced at /Users/axelgarcia/Documents/ggtournaments.github.io/gg_tournaments/build/app/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:26
+-keep class io.flutter.app.FlutterApplication { <init>(...); }

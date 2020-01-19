@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">302027302622-6skeki80d53mlrt0bgv5t1aa4c008psd.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://ggtournaments-7c772.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">302027302622</string>
+    <string name="google_api_key" translatable="false">AIzaSyAtRPzQJe8KktRwRzKuyXAyfPYC4NmGLwM</string>
+    <string name="google_app_id" translatable="false">1:302027302622:android:25dca039cc730f283c844f</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAtRPzQJe8KktRwRzKuyXAyfPYC4NmGLwM</string>
+    <string name="google_storage_bucket" translatable="false">ggtournaments-7c772.appspot.com</string>
+    <string name="project_id" translatable="false">ggtournaments-7c772</string>
+</resources>
