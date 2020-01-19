@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 
@@ -20,8 +22,10 @@ Widget scrollBox(String text1){
 
 
     margin: new EdgeInsets.symmetric(horizontal: 10, vertical: 10,),
-    child: Row(
+    child: Column(
       children: <Widget>[
+        Text(text1),
+        //Text(text1),
         Text(text1),
       ],
     ),
@@ -40,3 +44,32 @@ Widget scrollsArray(List<Widget> widgetList){
     ),
   );
 }
+
+Widget coverContainer(String titleText){
+  return Container(
+    color: Color(0xFFA88A3D),
+    width: 500,
+    height: 200,
+    //width: 200,
+    //height: 50,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        //put 'cover photo' and plus sign logo here
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(titleText),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(titleText),
+        ),
+
+      ],
+    ),
+
+
+  );
+}
+

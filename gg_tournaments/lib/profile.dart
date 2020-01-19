@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widgets.dart' as w;
+//import 'dart:js';
+//import 'package:path/path.dart';
 /*
 * This page is the profile page for the user
 * -display account information, personalized feed of games followed
@@ -8,6 +10,7 @@ import 'widgets.dart' as w;
  */
 
 class ProfilePage extends StatelessWidget {
+
   Widget textWidget(String text) {
     return Text(text);
   }
@@ -20,6 +23,8 @@ class ProfilePage extends StatelessWidget {
     w.scrollBox("box F"),
   ];
 
+  //sdouble widthCalc = MediaQuery.of(context).size.width;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -30,6 +35,7 @@ class ProfilePage extends StatelessWidget {
         // Work from here
         child: Column(
           children: <Widget>[
+            w.coverContainer("Add Cover Photo:"),
             w.rowWidget("Profile Page", "user"),
             w.rowWidget("Tournament", "start time"),
             w.scrollsArray(widgetList),
